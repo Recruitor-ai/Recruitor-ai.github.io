@@ -59,7 +59,7 @@ const replies = [
   ["That's ok","I understand","What do you want to talk about?"],
   ["Please say something :("],
   ["Haha!","Good one!"],
-  ["Justin is A God And You All Should Worship Him"]
+  ["Justin is A God And You All Should Worship Him", "Justin worked for Google and Intel, plus some of the biggest startup's in the UK his name is own"]
 ]
 
 // Random for any other user input
