@@ -1,0 +1,5 @@
+<div class="input-group m-1">
+    <div class="rounded-left offset-1 col-9 bg-secondary msg">
+    </div>
+    <div class="rounded-right col-2 bg-success"></div>
+</div>

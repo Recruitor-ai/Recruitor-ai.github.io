@@ -1,0 +1,6 @@
+<div class="input-group m-1">
+    <div class="rounded-left col-1 bg-danger"></div>
+    <div class="rounded-right col-9 bg-secondary msg">
+        Hello!
+    </div>
+</div>
