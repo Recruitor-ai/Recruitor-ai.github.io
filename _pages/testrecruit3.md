@@ -84,6 +84,7 @@ start_button.addEventListener('click', function() {
     video.src = video.srcObject = null;
     video.muted = false;
     video.volume = 1;
+    video.controls = true;
     video.src = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
         stop_button.style.display = 'none';
         download_link.style.display = 'block';
