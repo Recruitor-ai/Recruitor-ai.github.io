@@ -81,7 +81,10 @@ start_button.addEventListener('click', function() {
     media_recorder.addEventListener('stop', function() {
     	let video_local = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
     	download_link.href = video_local;
-
+    video.src = video.srcObject = null;
+    video.muted = false;
+    video.volume = 1;
+    video.src = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
         stop_button.style.display = 'none';
         download_link.style.display = 'block';
     });
