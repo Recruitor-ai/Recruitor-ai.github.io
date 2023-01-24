@@ -1,8 +1,15 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+permalink: /test.html
+layout: none
+---
 <html>
     <head>
-        <title>Real-Time Facial Emotion Detection</title>
+        <title>Real-Time Face Tracking in the Browser with TensorFlow.js</title>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.4.0/dist/tf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/face-landmarks-detection@0.0.1/dist/face-landmarks-detection.js"></script>
+        <script src="web/triangles.js"></script>
     </head>
     <body>
         <canvas id="output"></canvas>
@@ -25,6 +32,18 @@
             ctx.stroke();
         }
 
+        function drawTriangle( ctx, x1, y1, x2, y2, x3, y3 ) {
+            ctx.beginPath();
+            ctx.moveTo( x1, y1 );
+            ctx.lineTo( x2, y2 );
+            ctx.lineTo( x3, y3 );
+            ctx.lineTo( x1, y1 );
+            ctx.stroke();
+        }
+
+        let output = null;
+        let model = null;
+
         async function setupWebcam() {
             return new Promise( ( resolve, reject ) => {
                 const webcamElement = document.getElementById( "webcam" );
@@ -46,26 +65,8 @@
             });
         }
 
-        const emotions = [ "angry", "disgust", "fear", "happy", "neutral", "sad", "surprise" ];
-        let emotionModel = null;
-
-        let output = null;
-        let model = null;
-
-        async function predictEmotion( points ) {
-            let result = tf.tidy( () => {
-                const xs = tf.stack( [ tf.tensor1d( points ) ] );
-                return emotionModel.predict( xs );
-            });
-            let prediction = await result.data();
-            result.dispose();
-            // Get the index of the maximum value
-            let id = prediction.indexOf( Math.max( ...prediction ) );
-            return emotions[ id ];
-        }
-
         async function trackFace() {
-            const video = document.querySelector( "video" );
+            const video = document.getElementById( "webcam" );
             const faces = await model.estimateFaces( {
                 input: video,
                 returnTensors: false,
@@ -77,8 +78,9 @@
                 0, 0, video.width, video.height
             );
 
-            let points = null;
             faces.forEach( face => {
+                setText( `Face Tracking Confidence: ${face.faceInViewConfidence.toFixed( 3 )}` );
+
                 // Draw the bounding box
                 const x1 = face.boundingBox.topLeft[ 0 ];
                 const y1 = face.boundingBox.topLeft[ 1 ];
@@ -91,34 +93,15 @@
                 drawLine( output, x1, y2, x2, y2 );
                 drawLine( output, x1, y1, x1, y2 );
 
-                // Add just the nose, cheeks, eyes, eyebrows & mouth
-                const features = [
-                    "noseTip",
-                    "leftCheek",
-                    "rightCheek",
-                    "leftEyeLower1", "leftEyeUpper1",
-                    "rightEyeLower1", "rightEyeUpper1",
-                    "leftEyebrowLower", //"leftEyebrowUpper",
-                    "rightEyebrowLower", //"rightEyebrowUpper",
-                    "lipsLowerInner", //"lipsLowerOuter",
-                    "lipsUpperInner", //"lipsUpperOuter",
-                ];
-                points = [];
-                features.forEach( feature => {
-                    face.annotations[ feature ].forEach( x => {
-                        points.push( ( x[ 0 ] - x1 ) / bWidth );
-                        points.push( ( x[ 1 ] - y1 ) / bHeight );
-                    });
-                });
+                // Draw the face mesh
+                const keypoints = face.scaledMesh;
+                for( let i = 0; i < FaceTriangles.length / 3; i++ ) {
+                    let pointA = keypoints[ FaceTriangles[ i * 3 ] ];
+                    let pointB = keypoints[ FaceTriangles[ i * 3 + 1 ] ];
+                    let pointC = keypoints[ FaceTriangles[ i * 3 + 2 ] ];
+                    drawTriangle( output, pointA[ 0 ], pointA[ 1 ], pointB[ 0 ], pointB[ 1 ], pointC[ 0 ], pointC[ 1 ] );
+                }
             });
-
-            if( points ) {
-                let emotion = await predictEmotion( points );
-                setText( `Detected: ${emotion}` );
-            }
-            else {
-                setText( "No Face" );
-            }
 
             requestAnimationFrame( trackFace );
         }
@@ -147,8 +130,6 @@
             model = await faceLandmarksDetection.load(
                 faceLandmarksDetection.SupportedPackages.mediapipeFacemesh
             );
-            // Load Emotion Detection
-            emotionModel = await tf.loadLayersModel( 'web/model/facemo.json' );
 
             setText( "Loaded!" );
 
