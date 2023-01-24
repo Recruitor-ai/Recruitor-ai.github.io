@@ -40,15 +40,17 @@ layout: none
   <div class="col-md-4 ml-auto">
  
  <button id="start-camera">Start Camera</button>
-<video id="video" width="320" height="240" autoplay></video>
+<video id="video" width="350" autoplay></video>
 <button id="start-record">Start Recording</button>
 <button id="stop-record">Stop Recording</button>
 <a id="download-video" download="test.webm">Download Video</a>
+<button id="restart-record">Redo Recording</button>
 <script>
 
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let start_button = document.querySelector("#start-record");
+let restart_button = document.querySelector("#restart-record");
 let stop_button = document.querySelector("#stop-record");
 let download_link = document.querySelector("#download-video");
 
@@ -81,6 +83,35 @@ start_button.addEventListener('click', function() {
     media_recorder.addEventListener('stop', function() {
     	let video_local = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
     	download_link.href = video_local;
+    video.srcObject = camera_stream;
+    video.muted = false;
+    video.volume = 1;
+    video.controls = true;
+    video.src = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
+        stop_button.style.display = 'none';
+        download_link.style.display = 'block';
+    });
+
+    
+
+    media_recorder.start(1000);
+
+    start_button.style.display = 'none';
+    stop_button.style.display = 'block';
+});
+
+restart_button.addEventListener('click',  async function() {
+    media_recorder = new MediaRecorder(camera_stream, { mimeType: 'video/webm' });
+    
+video.src = video.srcObject = null;
+    media_recorder.addEventListener('dataavailable', function(e) {
+    	blobs_recorded.push(e.data);
+    });
+
+    media_recorder.addEventListener('stop', function() {
+    	let video_local = URL.createObjectURL(new Blob(blobs_recorded, { type: 'video/webm' }));
+    	download_link.href = video_local;
+    let camera_stream5 = navigator.mediaDevices.getUserMedia({ video: true, audio: true, volume: false });
     video.src = video.srcObject = null;
     video.muted = false;
     video.volume = 1;
@@ -89,6 +120,8 @@ start_button.addEventListener('click', function() {
         stop_button.style.display = 'none';
         download_link.style.display = 'block';
     });
+
+    
 
     media_recorder.start(1000);
 
