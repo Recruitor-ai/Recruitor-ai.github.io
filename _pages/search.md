@@ -733,5 +733,5 @@ var _wpcf7 = {"loaderUrl":"https:\/\/shtheme.com\/demosd\/thejobs\/wp-content\/p
 <script type='text/javascript' src='https://shtheme.com/demosd/thejobs/wp-includes/js/wp-embed.min.js?ver=4.6.25'></script>
 <script type='text/javascript' src='https://shtheme.com/demosd/thejobs/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=4.12'></script>
 
-  </body>
+</body>
 </html>
