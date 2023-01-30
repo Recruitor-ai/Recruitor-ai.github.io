@@ -1,0 +1,451 @@
+/*
+Theme Name: thejobs
+Theme URI: http://vergatheme.com/demosd/thejobs
+Author: Verga Theme Team
+Author URI: http://vergatheme.com
+Description: In 2017, our default theme lets you create a responsive magazine website with a sleek, modern design. Feature your favorite homepage content in either a grid or a slider. Use the three widget areas to customize your website, and change your content's layout with a full-width page template and a contributor page to show off your authors. Creating a magazine website with WordPress has never been easier.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+Text Domain: thejobs
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+#calendar_wrap {
+    width: 263px;
+}
+.widget_calendar {float: none;}
+#wp-calendar {width: 100%; }
+#wp-calendar caption { 
+    background: none repeat scroll 0 0 #E9E9E9;
+    color: #333333;
+    font-size: 16px;
+    padding: 10px 0;
+    text-align: center; 
+}
+#wp-calendar thead { font-size: 10px; }
+#wp-calendar thead th {
+    border: 1px solid #E9E9E9;
+    font-size: 13px;
+    padding: 8px 0;
+    text-align: center;
+    vertical-align: middle;
+}
+#wp-calendar tbody { color: #aaa; }
+#wp-calendar tbody td { background: #f5f5f5; border: 1px solid #E9E9E9; text-align: center; padding:8px;}
+#wp-calendar tbody td#today {background: #9e7dd3; color: #fff;}
+#wp-calendar tbody td:hover { background: #fff; }
+#wp-calendar tbody .pad { background: none; }
+#wp-calendar tfoot {border: 1px solid #E9E9E9;}
+#wp-calendar tfoot #next { font-size: 12px; text-transform: uppercase; text-align: right; color: #83c99f;}
+#wp-calendar tfoot #prev { font-size: 12px; text-transform: uppercase; padding-top: 10px; color: #83c99f;}
+
+.widget select {max-width: 100%;padding: 5px;border: 1px solid #ccc; width: 100%;}
+.widget_text .textwidget img{max-width: 100%;height: auto;}
+.widget_text select, .widget_text input , .widget_text textarea  {max-width: 100%;padding: 5px;border: 1px solid #ccc; width: 100%;}
+.widget_text option {max-width: 100%;}
+
+.widget_nav_menu ul li, .widget_pages ul li {color: #827b7d;line-height: 28px;}
+.widget_nav_menu ul li ul, .widget_pages ul li ul {padding-left: 20px;}
+.widget_nav_menu ul li a, .widget_pages ul li a{color: #827b7d;}
+.widget_nav_menu ul li a:hover, .widget_pages ul li a:hover {color: #615C5C;}
+
+#sidebar .textwidget img {
+    max-width: 100%;
+}
+.wp-caption img{
+    max-width:100%;
+    height: auto;
+}
+.wp-caption{
+    max-width:100%;
+}
+.main-content img {
+    height: auto;
+}
+.job_listing_preview_title input[type=submit],.apply_with_resume input[type=submit],.single-resume .resume_contact .resume_contact_button,.form-submit input.submit ,.application_button.button ,.job-manager-form input[type=submit]{
+        display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    height: 44px;
+    line-height: 44px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    padding: 0 30px;
+    color: #fff;
+        transition: .2s linear;
+    background-color: #29aafe;
+    border-color: #29aafe!important;
+}
+.form-submit input.submit:hover ,.application_button.button:hover ,.job-manager-form input[type=submit]:hover{
+    color: #fff;
+    background-color: #38b0fe;
+
+} 
+
+body.logged-in .navbar{
+  padding-top:32px !important;
+}
+body.logged-in .header-image.no-padding {
+    padding: 10px 0px !important;
+}
+.logged-in.sticky-nav .page-navigation.full-topbar {
+    top: 92px;
+}
+.screen-reader-text{}
+
+/* add */
+
+.alignright{
+    float:right;
+}
+.alignleft{
+    float:left;
+}
+
+.main-content table{ 
+    border-collapse: separate;
+    border-spacing: 0;
+    border-width: 1px 0 0 1px;
+    margin: 0 0 1.75em;
+    table-layout: fixed;
+    width: 100%;
+    border: 1px solid #d1d1d1;
+}
+.main-content table td{
+    border: 1px solid #d1d1d1;
+    padding-left: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+} 
+.main-content table th{
+    border: 1px solid #d1d1d1;
+    padding-left: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+ } 
+ img.alignleft, .alignleft img{
+  margin-right:10px; 
+ }
+ img.alignright, .alignright img{
+  margin-left:10px;
+ } 
+body {
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif !important;
+    color: #333;
+    background-color: #fff !important;
+}
+
+body {
+    font-family: Open Sans,sans-serif !important;
+    font-weight: normal !important;
+    font-size: 16px !important;
+    line-height: 28px !important;
+    color: #7e8890 !important;
+}
+
+
+.wp-caption.aligncenter {
+    width: 100% !important;
+    text-align: center;
+}
+.comment-respond .comment-reply-title {
+    font-family: Oswald,sans-serif;
+    letter-spacing: 1px;
+    margin: 16px 0;
+    line-height: 1.4;
+}
+.search-custom {
+    margin-top: 40px;
+}
+.search-custom form {
+    width: 70% !important;
+    padding-top: 20px;
+}
+
+
+.wp-caption-text , .gallery-caption , .bypostauthor {}
+
+form.post-password-form input[type=submit] {
+    padding: 0px 5px;
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+ .screen-reader-text {
+    display: none;
+}
+
+.widget ul li {
+    list-style: none !important;
+    padding-bottom: 10px;
+}
+.widget ul {
+    padding-left: 0px !important;
+}
+.widget ul.sub-menu , .widget ul.children{
+    padding-left: 20px !important;
+}
+.widget ul li a {
+        font-size: 15px;
+    color: rgb(129, 138, 145);
+    transition: color 0.2s linear;
+}
+.widget ul li a:hover {
+    color: #29aafe; 
+}
+.widget ul.recent_post li a {
+   color: #9e7dd3; 
+}
+a:hover {
+    text-decoration: none !important;
+}
+p.logged-in-as {
+    padding-bottom: 20px;
+}
+
+/*add */ 
+ul.link-list li br {
+    display: none;
+}
+.sticky-post {
+    float: right;
+    color: #606873;
+    font-size: 16px;
+    padding-right: 10px;
+    font-weight: 600;
+}
+
+.wp-tag-cloud li {
+    display: inline-block;
+    padding: 0px 12px !important;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+    color: #7e8890;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: .3s linear;
+}
+.wp-tag-cloud li:hover {
+    text-decoration: none;
+    background-color: #29aafe;
+    border-color: #29aafe;
+    color: #fff;
+}
+.wp-tag-cloud li a {
+    line-height: 30px !important;
+}
+.wp-tag-cloud li:hover a {
+    text-decoration: none; 
+    color: #fff !important;
+}
+
+/** add **/
+.media-list .content {
+    margin-left: 0px !important;
+}
+.logged-in-as a {
+    color: #7e8890 !important;
+}
+.comments-list .children .avatar {
+    height: auto;
+}
+
+.application_details {
+    padding-top: 20px;
+}
+.candidate-dashboard-action-delete , .candidate-dashboard-action-delete:hover {
+    color: #fff;
+}
+.job-dashboard-action-delete, .job-dashboard-action-delete:hover , .candidate-dashboard-action-delete , .candidate-dashboard-action-delete:hover{
+        background-color: #ef4d42;
+    border-color: #ef4d42!important;
+}
+.job-dashboard-action-mark_filled, .job-dashboard-action-mark_filled:hover {
+        color: #fff;
+    background-color: #87cc61;
+}
+.job-dashboard-action-edit, .job-dashboard-action-edit:hover {
+        color: #818a91;
+}
+.job-dashboard-action-duplicate, .job-dashboard-action-duplicate:hover {
+    background-color: #ff9592;
+}
+.action-btn .btn-xs {
+    margin: 0px 2px;
+}
+.item-block header .label {
+    color: #fff !important;
+    background-color: #5bc0de;
+}
+.item-block header .part-time {
+   background-color: #f0ad4e;
+}
+.item-block header .full-time {
+   background-color: #5cb85c;
+}
+.item-block header .freelance {
+   background-color: #5bc0de;
+}
+.item-block header .intership {
+   background-color: #d9534f;
+}
+.item-block header .temporary {
+   background-color: #5cb85c;
+}
+.job-manager-form fieldset input.input-text {
+    padding-left: 10px;
+}
+.single-resume .resume_contact .resume_contact_button {
+    width: auto;
+        background-color: #7ec855;
+    border-color: #7ec855!important;
+}
+
+.single-resume .meta .resume-category:before {
+    margin-right: 10px;
+}
+
+.page-header .header-detail .company_logo {
+    float: left;
+    width: 92px;
+    margin-right: 30px;
+}
+.company-letters {
+    margin-bottom: 55px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+    text-align: center;
+}
+.company-letters a {
+    font: 700 16px/normal Montserrat,sans-serif;
+    display: inline-block;
+    padding: 20px 11px 17px 11px;
+    color: #333;
+}
+.company-letters a:hover , .companies-overview li li a:hover{
+    color: #29aafe;
+}
+section ul.companies-overview ul, section ul.companies-overview {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.companies-overview .company-group {
+    width: 30%;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    float: left;
+    display: inline;
+}
+.company-letter {
+    font: 700 20px/normal Montserrat,sans-serif;
+    padding: 9px 15px;
+    color: #333;
+}
+.companies-overview li li a {
+    padding: 14px 2px;
+    border-bottom: 1px solid #eee;
+    display: block;
+    color: #777;
+}
+.page-template .sharedaddy {
+    display: none;
+}
+.form-subscribe .form-control{
+    border-top-left-radius: 36px !important;
+    border-bottom-left-radius: 36px !important;
+}
+.form-subscribe .btn {
+    border-top-right-radius: 36px !important;
+    border-bottom-right-radius: 36px !important;
+    margin-top: -32px !important;
+}
+.job_filters .showing_jobs, .resume_filters .showing_resumes {
+    display: block;
+    font-family: Oswald,sans-serif;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-size: 20px;
+    padding-top: 40px;
+}
+.nav-on-header .navbar .nav-menu ul li.active a {
+    color: #29aafe;
+    opacity: 1;
+}
+body.login-page {
+    background-color: #e5e7ed !important;
+}
+.logged-in .login-links {
+    display: none;
+}
+body.page-template-template-home.logged-in {
+    margin-top: -10px !important;
+}
+.chosen-container-single .chosen-single {
+        background: #fcfcfc;
+    color: #b0b2b3;
+    border-color: #dfe5e7;
+    text-transform: none;
+    font-weight: 500;
+    border-radius: 0;
+    z-index: 1;
+    height: 44px;
+    line-height: 44px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-left: 14px;
+    transition: border-color .2s linear,background-color .2s linear;
+}
+.job_filters .search_jobs div.search_categories {
+    padding-top: 0px;
+}
+.chosen-container-single .chosen-single div b {
+    margin-top: 9px;
+}
+.chosen-container-multi .chosen-choices {
+    padding: 6px;
+    background: #fcfcfc;
+    color: #b0b2b3;
+    border-color: #dfe5e7;
+}
+.chosen-container-multi .chosen-choices li.search-field input[type=text]{
+     color: #b0b2b3;
+}
+
+.site-footer a:after{
+    border-bottom: none!important;
+}
+ul.footer-socials{
+    list-style: none;
+    float: right;
+}
+ul.footer-socials li{
+    float: left;
+    margin-right: 20px;
+}
+body.page-template-template-home > p{
+display:none;
+}
