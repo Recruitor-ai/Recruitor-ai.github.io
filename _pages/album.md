@@ -18,14 +18,14 @@ layout: album
 <div class="container">
 <div class="row">
 {% for vid in site.data.vids %}
-      <div class="col-md-4">
+      <div class="col-sm-3">
 <div class="card mb-4 shadow-sm">
-<video width="350" controls="">
+<video width="100%" controls="">
 <source src="/video/{{ vid.link }}" type="video/mp4">
 Your browser does not support HTML video.
 </video>
 <div class="card-body">
-<h1>{{ vid.name }}</h1>
+<h2>{{ vid.name }}</h2>
 <p class="card-text">{{ vid.description }}<br />press the play button for a demo</p>
 <div class="d-flex justify-content-between align-items-center">
 <div class="btn-group">
